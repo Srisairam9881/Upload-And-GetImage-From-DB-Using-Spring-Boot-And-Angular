@@ -9,10 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
 
 // Controller class
 @RestController
+@CrossOrigin("*")
 public class ImageController {
 
     @Autowired
@@ -44,6 +46,11 @@ System.out.println(fileName);
         } else {
             return ResponseEntity.notFound().build();
         }
+
+    }
+    @GetMapping("/images")
+    public List<ImageEntity> getAllImages() {
+        return imageService.getAllImages();
     }
 
 }

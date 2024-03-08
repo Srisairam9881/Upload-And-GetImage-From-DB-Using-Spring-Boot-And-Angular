@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,5 +23,8 @@ public class ImageService {
     }
     public Optional<ImageEntity> getImageById(Long id) {
         return imageRepository.findById(id);
+    }
+    public List<ImageEntity> getAllImages() {
+        return imageRepository.findAll();
     }
 }
